@@ -1,2 +1,35 @@
-# credit_card_spend_summarizer
-An AI-native insurance claims processing system powered by LLM agents and RAG technology. The system automates claim assessment, policy validation, fraud detection, and payout calculations with human-in-the-loop oversight. 
+Streamlit UI
+     ↓
+FastAPI
+     ↓
+LangGraph
+     ↓
+Query Router
+     ↓
+ ┌─────────────┬─────────────┐
+ │             │             │
+SQL Agent   RAG Agent   Hybrid Agent
+ │             │             │
+Postgres    PGVector    Both
+ │             │             │
+ └─────────────┴─────────────┘
+              ↓
+           GPT/Gemini
+              ↓
+          Response
+
+PDF
+ ↓
+Parsed
+ ↓
+Chunked
+ ↓
+Embedded
+ ↓
+Stored
+ ↓
+103 chunks
+
+
+guardrails hub install hub://guardrails/toxic_language
+guardrails hub install hub://guardrails/guardrails_pii

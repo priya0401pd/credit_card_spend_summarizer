@@ -1,0 +1,17 @@
+ALTER TABLE multimodal_chunks
+ADD COLUMN search_vector tsvector
+GENERATED ALWAYS AS (
+    to_tsvector(
+        'english',
+        content
+    )
+) STORED;
+
+CREATE INDEX idx_fts_chunks
+ON multimodal_chunks
+USING GIN(search_vector);
+
+SELECT
+column_name
+FROM information_schema.columns
+WHERE table_name='multimodal_chunks';

@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+*{
+    font-family:'Inter',sans-serif;
+}
+
+/* App */
+.stApp{
+    background:#EAF1FB;
+}
+
+/* Hide Streamlit */
+#MainMenu,
+footer,
+header{
+    visibility:hidden;
+}
+
+/* Sidebar */
+section[data-testid="stSidebar"]{
+    background:#1C3E70;
+    width:300px !important;
+}
+
+section[data-testid="stSidebar"] *{
+    color:white;
+}
+
+/* Main */
+.block-container{
+    padding-top:1rem;
+    max-width:1200px;
+}
+
+/* Header */
+.app-title{
+    text-align:center;
+    color:#041025;
+    font-size:42px;
+    font-weight:800;
+    margin-bottom:5px;
+}
+
+.app-subtitle{
+    text-align:center;
+    color:#4F5D73;
+    font-size:16px;
+    font-weight:600;
+    margin-bottom:30px;
+}
+
+/* Cards */
+.main-card{
+    background:white;
+    border:1px solid #C9D8EE;
+    border-radius:18px;
+    padding:20px;
+    box-shadow:0px 4px 12px rgba(0,0,0,0.05);
+}
+
+.section-title{
+    color:#041025;
+    font-size:22px;
+    font-weight:800;
+    margin-bottom:15px;
+}
+
+/* Search */
+.stTextInput input{
+    border-radius:10px;
+}
+
+/* Buttons */
+.stButton button{
+    width:100%;
+    background:#28508D;
+    color:white;
+    border:none;
+    border-radius:10px;
+    font-weight:700;
+}
+
+.stButton button:hover{
+    background:#1C3E70;
+}
+
+/* History */
+.history-item{
+    background:white;
+    border:1px solid #C9D8EE;
+    border-radius:10px;
+    padding:10px;
+    margin-bottom:8px;
+    color:#041025;
+    font-size:14px;
+    font-weight:600;
+}
+
+/* Chat */
+.chat-wrapper{
+    max-height:450px;
+    overflow-y:auto;
+    padding-right:10px;
+}
+
+.user-card{
+    background:#DCE8FA;
+    border-left:4px solid #28508D;
+    padding:14px;
+    border-radius:10px;
+    margin-bottom:12px;
+    color:#041025;
+    font-weight:600;
+}
+
+.ai-card{
+    background:#F7F9FC;
+    border-left:4px solid #1C3E70;
+    padding:14px;
+    border-radius:10px;
+    margin-bottom:12px;
+    color:#041025;
+}
+
+.upload-status{
+    background:#F7F9FC;
+    border:1px solid #C9D8EE;
+    border-radius:10px;
+    padding:12px;
+    font-weight:700;
+    color:#041025;
+}
