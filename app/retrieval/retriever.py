@@ -160,7 +160,7 @@ class Retriever:
                     ORDER BY
                         embedding <=> %s::vector
 
-                    LIMIT 50
+                    LIMIT 30
                     """,
                     (
                         embedding_str,
@@ -216,7 +216,7 @@ class Retriever:
 
                     ORDER BY score DESC
 
-                    LIMIT 50
+                    LIMIT 30
                     """,
                     (
                         query,
@@ -274,7 +274,7 @@ class Retriever:
                     ORDER BY
                         embedding <=> %s::vector
 
-                    LIMIT 50
+                    LIMIT 30
                     """,
                     (embedding_str,)
                 )
@@ -305,7 +305,7 @@ class Retriever:
                                 %s
                             )
 
-                        LIMIT 50
+                        LIMIT 30
                         """,
                         (query,)
                     )

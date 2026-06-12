@@ -8,7 +8,13 @@ def execute_sql(sql: str):
 
     sql_lower = sql.lower().strip()
 
-    if not sql_lower.startswith("select"):
+    sql_lower = sql.strip().lower()
+
+    if not (
+        sql_lower.startswith("select")
+        or
+        sql_lower.startswith("with")
+    ):
         raise ValueError(
             "Only SELECT queries allowed"
         )
@@ -37,12 +43,25 @@ def execute_sql(sql: str):
 @tool
 def sql_tool(query: str):
     """
-    Use for:
-    customer spend,
-    transactions,
-    reward points,
-    fee waiver status,
-    account information.
+    QUESTION-SPECIFIC RETRIEVAL
+
+Fee Waiver Questions:
+- Retrieve annual spend.
+- Do not retrieve only card details.
+
+Eligibility Questions:
+- Retrieve all customer metrics required
+  for the eligibility calculation.
+
+Reward Questions:
+- Retrieve reward balances and reward transactions.
+
+Spending Pattern Questions:
+- Retrieve category-wise spend and transaction counts.
+
+Upgrade Recommendation Questions:
+- Retrieve spend, rewards, card details,
+  and applicable product rules.
     """
     print("\n SQL tool Called \n")
     sql = generate_sql(query)

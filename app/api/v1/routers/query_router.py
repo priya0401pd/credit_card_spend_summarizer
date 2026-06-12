@@ -1,10 +1,20 @@
 from fastapi import APIRouter
 from fastapi.responses import StreamingResponse
+from app.guardrails.domain_guardrail import (
+    is_credit_card_query
+)
 from app.api.v1.services.query_service import (
     query_service
 )
 from app.api.v1.services.chat_history_service import (
     save_chat
+)
+from app.guardrails.pii_guardrail import (
+    mask_pii
+)
+
+from app.guardrails.toxic_guardrail import (
+    is_toxic
 )
 
 router = APIRouter(
@@ -26,6 +36,16 @@ def query(request: dict):
         query
     )
 
+    if is_toxic(query):
+
+        return {
+            "answer":
+            (
+                "Please use respectful and "
+                "professional language."
+            )
+        }
+    
     result = query_service.ask(
         query
     )
@@ -33,6 +53,8 @@ def query(request: dict):
     answer = result[
         "messages"
     ][-1].content
+    answer = mask_pii(
+    answer)
 
     save_chat(
         session_id,
